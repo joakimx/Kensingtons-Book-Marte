@@ -129,121 +129,12 @@ require("a1.lib");
 			<li><a href="add.php">Add</a></li>
 			<li><a href="view.php" target="_self">View All</a></li>
 		</ul>
-<!--
-<?php
-  //Form variables//
-  //If method is POST, generate error, assign POST values to variables//
-  //Regex//
-  $item1 = '/^[ ]*[A-Za-z0-9,\s\;\:\-\'\"]*[ ]*$/i';
-  $desc1 = '/^[a-z0-9\.\,\'\.\s\\n\-]+$/i';
-  $supplier1 = '/^[ ]*[A-Za-z0-9\.\' ]+[ ]*$/i';
-  $cost1 = '/^[ ]*[0-9]+\.[0-9]{2}[ ]*$/i';
-  $price1 = '/^[ ]*[0-9]+\.[0-9]{2}[ ]*$/i';
-  $onhand1 = '/^[ ]*[0-9]+[ ]*$/';
-  $reorder1 = '/^[ ]*[0-9]+[ ]*$/';
-  $backorder1 = '';
-  //Errno
-  $valid= true;
-  $errItem = "";
-  $errDesc = "";
-  $errSupplier = "";
-  $errCost = "";
-  $errPrice = "";
-  $errOnhand = "";
-  $errReorder = "";
-  $errBackOrder = "";
 
- if ($_POST) {
-
-	if ($_POST['item'] == "" || !(preg_match($item1, $_POST['item']))) {
-      $errItem = " *Error -- Please input valid item name";
-      $valid = false;
-    }
-
-    if ($_POST['desc'] == "" || !(preg_match($desc1, $_POST['desc']))) {
-      $errDesc = " *Error -- Please input a short valid description";
-      $valid = false;
-    }
-    if ($_POST['supplier'] == "" || (! preg_match($supplier1, $_POST['supplier']))) {
-      $errSupplier = " *Error -- Please input valid item supplier";
-      $valid = false;
-    }
-
-    if ($_POST['cost'] == "" || (! preg_match($cost1, $_POST['cost']))) {
-      $errCost = " *Error -- Please input valid item cost";
-      $dataValid = false;
-    }
-
-    if ($_POST['price'] == "" || !(preg_match($price1, $_POST['price']))) {
-      $errPrice = " *Error -- Please input valid item price";
-      $valid = false;
-    }
-    if ($_POST['onhand'] == "" || !(preg_match($onhand1, $_POST['onhand']))) {
-      $errOnhand = " *Error -- Please input valid number on hand";
-      $valid = false;
-    }
-    if ($_POST['reorder'] == "" || !(preg_match($reorder1, $_POST['reorder']))) {
-      $errReorder = " *Error -- Please input valid number on reorder";
-      $valid = false;
-    }
-    if ($_POST['backorder'] == "") {
-      $backorder = 'n';
-    } elseif ($_POST['backorder'] == "y") {
-      $backorder = 'y';
-    } else {
-      $backorder = 'n';
-    }
-  }
-
-//If fields are valid, store data in database
-  if ($_POST && $valid) {
-
-
-	$file = file('/home/int322_162b04/secret/topsecret.txt');
-	$server = trim($file[0]);
-	$user = trim($file[1]);
-	$password = trim($file[2]);
-	$db = trim($file[3]);
-        $dbHandle = new mysqli($server, $user, $password, $db);
-
-
-        //MySQL-digestable variables:
-        $item = $_POST['item'];
-        $item = $dbHandle->real_escape_string($item);
-
-        $desc = $_POST['desc'];
-        $desc = $dbHandle->real_escape_string($desc);
-
-        $supplier = $_POST['supplier'];
-        $supplier = $dbHandle->real_escape_string($supplier);
-
-        $cost = $_POST['cost'];
-        $email = $dbHandle->real_escape_string($cost);
-
-        $price = $_POST['price'];
-        $price = $dbHandle->real_escape_string($price);
-
-        $onhand = $_POST['onhand'];
-        $onhand= $dbHandle->real_escape_string($onhand);
-
-        $reorder = $_POST['reorder'];
-        $reorder= $dbHandle->real_escape_string($reorder);
-
-        $backorder = $_POST['backorder'];
-        $backorder= $dbHandle->real_escape_string($backorder);
-
-        $sql = "INSERT INTO inventory (itemName, description, supplierCode, cost, price, onHand, reorderPoint, backOrder, deleted) VALUES ('$item', '$desc', '$supplier', '$cost', '$price', '$onhand', '$reorder', '$backorder', 'n');";
-
-		//Enter all valid data into database
-        if (mysqli_query($dbHandle, $sql)) {
-          mysqli_close($dbHandle);
-        } else {
-          echo "Failed";
-        }
-      }
-      ?>
--->
 <!-- Start of form..generate errors/populate fields if fields are not valid, else- display empty form -->
+
+<?php 
+	populate();
+?>
 
   <form action="" method="POST">
 	<br>
