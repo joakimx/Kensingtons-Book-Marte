@@ -4,7 +4,7 @@ if($_POST && $valid) {
 	header_remove();
  	header("Location: view.php");
 }
-//library for common codes. 
+//library for common codes.
 require("a1.lib");
 ?>
 <!DOCTYPE html>
@@ -129,7 +129,7 @@ require("a1.lib");
 			<li><a href="add.php">Add</a></li>
 			<li><a href="view.php" target="_self">View All</a></li>
 		</ul>
-
+<!--
 <?php
   //Form variables//
   //If method is POST, generate error, assign POST values to variables//
@@ -197,7 +197,7 @@ require("a1.lib");
 
 //If fields are valid, store data in database
   if ($_POST && $valid) {
- 
+
 
 	$file = file('/home/int322_162b04/secret/topsecret.txt');
 	$server = trim($file[0]);
@@ -242,9 +242,9 @@ require("a1.lib");
         }
       }
       ?>
-
+-->
 <!-- Start of form..generate errors/populate fields if fields are not valid, else- display empty form -->
-      
+
   <form action="" method="POST">
 	<br>
     <table>
@@ -298,7 +298,7 @@ require("a1.lib");
   </form>
 
 <?php
-//If all data is valid and was input into database, show updated records. 
+//If all data is valid and was input into database, show updated records.
 if ($_POST && $valid) {
   echo "<br><br>";
   view();
